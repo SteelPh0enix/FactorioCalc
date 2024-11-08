@@ -2,12 +2,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-
 @dataclass
-class Item:
+class Entity:
     name: str
-    stack_size: int
-    rocket_capacity: int
 
     def __str__(self) -> str:
         return self.name
@@ -15,6 +12,10 @@ class Item:
     def __hash__(self) -> int:
         return hash(self.name)
 
+@dataclass
+class Item(Entity):
+    stack_size: int
+    rocket_capacity: int
 
 @dataclass
 class Fuel(Item):
@@ -54,3 +55,48 @@ class ElectricPole(Item):
     """How long can a wire reach this pole"""
     supply_area: tuple[int, int]
     """Size of supply area in (width, height) format"""
+
+@dataclass
+class Robot(Item):
+    capacity: int
+    """Cargo capacity of a robot, in items"""
+    speed: float
+    """Base speed of a robot"""
+    max_power_consumption: float
+    """Maximum power consumption, in watts"""
+
+@dataclass
+class Miner(Item):
+    mining_speed: float
+    """Mining speed, in items/sec"""
+    mining_area: tuple[int, int]
+    """Mining area in (width, height) format"""
+    resource_drain: float = 1
+    """Resource drain multiplier, 100% == 1"""
+
+@dataclass
+class Crafter(Item):
+    crafting_speed: float = 1
+    """Crafting speed multiplier"""
+    base_productivity: float = 1
+    """Base productivity of a crafter"""
+
+@dataclass
+class Module(Item):
+    energy_consumption: float = 0
+    """Energy consumption multiplier"""
+    speed: float = 0
+    """Speed multiplier"""
+    quality: float = 0
+    """Quality multiplier"""
+    productivity: float = 0
+    """Productivity multiplier"""
+
+@dataclass
+class Bacteria(Item):
+    spoil_time: int
+    """Spoil time, in seconds"""
+
+@dataclass
+class Fluid(Entity):
+    pass
