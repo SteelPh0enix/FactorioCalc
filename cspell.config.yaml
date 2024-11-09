@@ -1,0 +1,20 @@
+---
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: '0.2'
+dictionaryDefinitions:
+  - name: factorio
+    path: './factorio-words.txt'
+    addWords: true
+dictionaries:
+  - en_US
+  - companies
+  - softwareTerms
+  - python
+  - cpp
+  - bash
+  - filetypes
+  - factorio
+ignorePaths:
+  - '/factorio-words.txt'
+  - 'LICENSE'
+  - '.git*'
