@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+
 @dataclass(frozen=True)
 class Entity:
     name: str
@@ -12,10 +13,12 @@ class Entity:
     def __hash__(self) -> int:
         return hash(self.name)
 
+
 @dataclass(frozen=True)
 class Item(Entity):
     stack_size: int
     rocket_capacity: int
+
 
 @dataclass(frozen=True)
 class Fuel(Item):
@@ -56,6 +59,7 @@ class ElectricPole(Item):
     supply_area: tuple[int, int]
     """Size of supply area in (width, height) format"""
 
+
 @dataclass(frozen=True)
 class Robot(Item):
     capacity: int
@@ -64,6 +68,7 @@ class Robot(Item):
     """Base speed of a robot"""
     max_power_consumption: float
     """Maximum power consumption, in watts"""
+
 
 @dataclass(frozen=True)
 class Miner(Item):
@@ -74,12 +79,14 @@ class Miner(Item):
     resource_drain: float = 1
     """Resource drain multiplier, 100% == 1"""
 
+
 @dataclass(frozen=True)
 class Crafter(Item):
     crafting_speed: float = 1
     """Crafting speed multiplier"""
     base_productivity: float = 1
     """Base productivity of a crafter"""
+
 
 @dataclass(frozen=True)
 class Module(Item):
@@ -92,11 +99,19 @@ class Module(Item):
     productivity: float = 0
     """Productivity multiplier"""
 
+
 @dataclass(frozen=True)
 class Bacteria(Item):
     spoil_time: int
     """Spoil time, in seconds"""
 
+
 @dataclass(frozen=True)
 class Fluid(Entity):
     pass
+
+
+@dataclass(frozen=True)
+class Asteroid(Entity):
+    yields: dict[Entity, int]
+    """Asteroid's yield"""

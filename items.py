@@ -1,4 +1,5 @@
 from item_types import (
+    Asteroid,
     Bacteria,
     Belt,
     Crafter,
@@ -161,7 +162,7 @@ ElectricFurnace = Crafter(name="Electric furnace", stack_size=50, rocket_capacit
 Foundry = Crafter(name="Foundry", stack_size=20, rocket_capacity=5, crafting_speed=4, base_productivity=0.5)
 Recycler = Crafter(name="Recycler", stack_size=20, rocket_capacity=10, crafting_speed=0.5)
 
-AgriculturalTower = Item(name="Agricurtular tower", stack_size=20, rocket_capacity=20)
+AgriculturalTower = Item(name="Agricultural tower", stack_size=20, rocket_capacity=20)
 Biochamber = Crafter(name="Biochamber", stack_size=20, rocket_capacity=20, crafting_speed=2, base_productivity=0.5)
 CaptiveBiterSpawner = Crafter(name="Captive biter spawner", stack_size=1, rocket_capacity=1)
 
@@ -372,10 +373,31 @@ Crusher = Crafter(name="Crusher", stack_size=10, rocket_capacity=10)
 Thruster = Item(name="Thruster", stack_size=10, rocket_capacity=5)
 SpacePlatformStarterPack = Item(name="Space platform starter pack", stack_size=1, rocket_capacity=1)
 
+
 MetallicAsteroidChunk = Item(name="Metallic asteroid chunk", stack_size=1, rocket_capacity=10)
 CarbonicAsteroidChunk = Item(name="Carbonic asteroid chunk", stack_size=1, rocket_capacity=10)
 OxideAsteroidChunk = Item(name="Oxide asteroid chunk", stack_size=1, rocket_capacity=10)
 PromethiumAsteroidChunk = Item(name="Promethium asteroid chunk", stack_size=1, rocket_capacity=10)
+
+SmallMetallicAsteroid = Asteroid(name="Small metallic asteroid", yields={MetallicAsteroidChunk: 2})
+MediumMetallicAsteroid = Asteroid(name="Medium metallic asteroid", yields={SmallMetallicAsteroid: 3})
+BigMetallicAsteroid = Asteroid(name="Big metallic asteroid", yields={MediumMetallicAsteroid: 3})
+HugeMetallicAsteroid = Asteroid(name="Huge metallic asteroid", yields={BigMetallicAsteroid: 3})
+
+SmallCarbonicAsteroid = Asteroid(name="Small carbonic asteroid", yields={CarbonicAsteroidChunk: 2})
+MediumCarbonicAsteroid = Asteroid(name="Medium carbonic asteroid", yields={SmallCarbonicAsteroid: 3})
+BigCarbonicAsteroid = Asteroid(name="Big carbonic asteroid", yields={MediumCarbonicAsteroid: 3})
+HugeCarbonicAsteroid = Asteroid(name="Huge carbonic asteroid", yields={BigCarbonicAsteroid: 3})
+
+SmallOxideAsteroid = Asteroid(name="Small oxide asteroid", yields={OxideAsteroidChunk: 2})
+MediumOxideAsteroid = Asteroid(name="Medium oxide asteroid", yields={SmallOxideAsteroid: 3})
+BigOxideAsteroid = Asteroid(name="Big oxide asteroid", yields={MediumOxideAsteroid: 3})
+HugeOxideAsteroid = Asteroid(name="Huge oxide asteroid", yields={BigOxideAsteroid: 3})
+
+SmallPromethiumAsteroid = Asteroid(name="Small promethium asteroid", yields={PromethiumAsteroidChunk: 2})
+MediumPromethiumAsteroid = Asteroid(name="Medium promethium asteroid", yields={SmallPromethiumAsteroid: 3})
+BigPromethiumAsteroid = Asteroid(name="Big promethium asteroid", yields={MediumPromethiumAsteroid: 3})
+HugePromethiumAsteroid = Asteroid(name="Huge promethium asteroid", yields={BigPromethiumAsteroid: 3})
 
 # Combat
 
